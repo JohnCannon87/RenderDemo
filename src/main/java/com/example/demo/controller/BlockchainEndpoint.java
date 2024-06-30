@@ -12,13 +12,21 @@ import com.example.demo.service.BlockchainService;
 
 @RestController
 @RequestMapping("api/v1/block")
-public class BlockchainEndpoint {
+public class BlockchainEndpoint extends abstractEndpoint {
+
+	private static final String ENDPOINT_TYPE = "BlockChain";
 
 	@Autowired
-	BlockchainService blockchainService;
+	private BlockchainService blockchainService;
 
 	@GetMapping
 	public HashMap<String, TickerInfo> getBlockchain() {
+		updateStats(ENDPOINT_TYPE);
 		return blockchainService.getTickerData();
+	}
+
+	@Override
+	protected String endpointType() {
+		return ENDPOINT_TYPE;
 	}
 }
