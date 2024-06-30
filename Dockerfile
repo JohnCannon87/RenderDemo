@@ -16,4 +16,4 @@ VOLUME /tmp
 COPY build/libs/demo-0.0.1-SNAPSHOT.jar app.jar
 
 # Set the entry point to run your application
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
